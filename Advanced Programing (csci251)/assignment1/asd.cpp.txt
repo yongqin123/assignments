@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+	//initialise config filename as string
+	string config_file_name;
+	cout << "Please enter config filename: ";
+	
+	//obtain the config filename which to be used for appendix a
+	cin >> config_file_name;
+	
+
+	string line;
+  	ifstream myfile ("example.txt");
+ 	if (myfile.is_open())
+  	{
+    		while ( getline (myfile,line) )
+    		{
+      			cout << line << '\n';
+    		}
+		myfile.close();
+  	}
+}
