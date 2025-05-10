@@ -1,0 +1,16 @@
+Kali
+- mac adress: 08:00:27:db:96:6a
+- ip: 10.0.2.15
+
+
+metsploitable
+- mac adress: 08:00:27:97:d2:bb
+- ip: 10.0.2.4
+
+gateway
+- ip: 10.0.2.1
+- mac address: 52:54:00:12:35:00
+
+ubuntu
+- ip: 10.0.2.5
+- mac address: 08:00:27:6c:64:ed
