@@ -1,0 +1,159 @@
+
+<html>
+    <head>
+       
+    </head>
+    <body>
+                <!-- creates a table with border of 2px with collapse border><-->
+        <table style="border:2px solid black; border-collapse: collapse;">
+        
+            <tr style="background-color:#DEEAF6;border:2px solid black;"> <!-- Light blue bg><-->
+                <!-- 1st row><-->
+                <th colspan = "3" style="height:50px;border:2px solid black;font-size: 17pt;"><b>CSIT128: Assignment 2</b></th>
+                <th style="width:200px; font-size: 17pt;"><b>Tutorial 2 Team 14</b></th>	
+            </tr>
+
+            <tr>
+                <!-- 2nd row><-->
+                <td rowspan="3" style="padding:10px;width:130px;border: 2px solid black;">Student Number /<br/> Name / Email</td>
+                <td style="width:100px;height:60px;padding:8px;border: 2px solid black;">7058895</td>
+                <td style="width:130px;height:60px;padding:8px;border: 2px solid black;">Ong Wei Hao</td>
+                <td style="width:200px;height:60px;padding:8px;border: 2px solid black;">who951@uowmail.edu.au</td>	
+            </tr>
+
+            <tr >
+                <!-- 3rd row><-->
+                <td style="width:100px;height:60px;padding:8px;border: 2px solid black;">7059073</td>
+                <td style="width:130px;height:60px;padding:8px;border: 2px solid black;">Toh Yong Qin</td>
+                <td style="width:200px;height:60px;padding:8px;border: 2px solid black;">yqt817@uowmail.edu.au</td>	
+            </tr>
+
+            <tr>
+                <!-- 4th row><-->
+                <td style="width:100px;height: 60px;padding:8px;border: 2px solid black;"></td>
+                <td style="width:130px;height: 60px;padding:8px;border: 2px solid black;"></td>
+                <td style="width:200px;height: 60px;padding:8px;border: 2px solid black;"></td>
+            </tr>
+        </table>
+        <hr>
+        <table style="border-collapse: collapse; border: 1px solid black; width:546px; height:221px;">
+            <tr style="border: 1px solid black; width:546px; height:45px;">
+                <td colspan="3" style="background-color:#f8ccac;font-size:25px;text-align: center"><b>Part 2: Game</b></td>
+            </tr>
+            
+            <tr style="border: 1px solid black">
+                <td style="background-color:#e0ecf4;padding-left: 9px;border: 1px solid black; width:182px; height:45px;"><b>Your chosen number:</b></td>
+                <td style="background-color:#e0ecf4;text-align: center;border: 1px solid black; width:182px; height:45px;">
+                    <select name="choose" id="choose" style="background-color:#e0ecf4; border:none">
+                      <option value="default">&lt;list box showing 0 to 9&gt;</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                </td>
+                <td style="background-color:#fff4cc;text-align: center;width:182px; height:45px;font-size:20px;">
+                    <b>Current Score: <span id="score" style="color:red">0</span></b></td>
+            </tr>
+            
+            <tr style="border: 1px solid black">
+                <td colspan="3" style="background-color:lightgreen; width:546px; height:37px;">
+                    <button id="start" onclick=game_start(); type="button" style="border: none;background-color: lightgreen;position: relative;left: 95px;">
+                        &lt;Start Game Button&gt;</button>
+                    <button disabled id="end" onclick=game_stop(); type="button" style="border: none;background-color: lightgreen;position: relative;left: 180px;">
+                        &lt;Stop Game Button&gt;</button>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="border: 1px solid black"><button disabled id="btn_1" onclick=number_1(); type="button" style="font-size:25px;color:blue;border: none;background-color: white; width:182px; height:94px;">
+                        &lt;1<sup>st</sup> number&gt;</button></td>
+                <td  style="border: 1px solid black"><button disabled id="btn_2" onclick=number_2(); type="button" style="font-size:25px;color:#f09311;border: none;background-color: white; width:182px; height:94px;">
+                        &lt;2<sup>nd</sup> number&gt;</button></td>
+                <td style="border: 1px solid black"><button disabled id="btn_3" onclick=number_3(); type="button" style="font-size:25px;color:#da42f5;border: none;background-color: white; width:182px; height:94px;">
+                        &lt;3<sup>rd</sup> number&gt;</button></td>                
+            </tr>                        
+        </table>
+    </body>
+    
+    <script>        
+        //global variable
+        var t;
+        
+        function game_stop() {
+            clearInterval(t);
+            document.getElementById("btn_1").disabled=true;
+            document.getElementById("btn_2").disabled=true;
+            document.getElementById("btn_3").disabled=true;
+            document.getElementById("choose").disabled= false;
+            document.getElementById("start").disabled= false;
+            document.getElementById("end").disabled= true;            
+        }
+        
+        function match(m) {
+            document.getElementById("btn_1").disabled=true;
+            document.getElementById("btn_2").disabled=true;
+            document.getElementById("btn_3").disabled=true;
+            if (m == document.getElementById("choose").value) {
+                var score = parseInt(document.getElementById("score").innerHTML);
+                score += 4;
+                document.getElementById("score").innerHTML = score;
+            }
+            
+            else {
+                var score = parseInt(document.getElementById("score").innerHTML);
+                score -= 3;
+                document.getElementById("score").innerHTML = score;
+            }
+        }                
+        
+        function number_1() {
+            console.log(document.getElementById("btn_1").innerHTML);
+            match(document.getElementById("btn_1").innerHTML);
+        }
+        
+        function number_2() {
+            console.log(document.getElementById("btn_2").innerHTML);
+            match(document.getElementById("btn_2").innerHTML);
+        }
+        
+        function number_3() {
+            console.log(document.getElementById("btn_3").innerHTML);
+            match(document.getElementById("btn_3").innerHTML);
+        }
+        
+        function game_start() {
+            document.getElementById("score").innerHTML = "0";            
+            var choosen_number = document.getElementById("choose").value;
+            if (choosen_number != "default") {
+                document.getElementById("end").disabled = false;
+                document.getElementById("start").disabled = true;
+                document.getElementById("choose").disabled=true;
+                myTimer();
+                t = setInterval(myTimer, 2000);
+            }
+        }
+                      
+        function myTimer() {
+            document.getElementById("btn_1").disabled= false;
+            document.getElementById("btn_2").disabled=false;
+            document.getElementById("btn_3").disabled=false;
+            var rnd_int = (Math.floor((Math.random() * 10))).toString();
+            var ls = [];
+            for (let i = 0 ; i < 3; i++) {
+                while (ls.includes(rnd_int) == true) {
+                    rnd_int = (Math.floor((Math.random() * 10))).toString();
+                }
+                ls.push(rnd_int);
+                document.getElementById("btn_"+(i+1)).innerHTML = ls[i]
+            }            
+            return ls;
+        }                
+    </script>
+</html>
