@@ -1,0 +1,44 @@
+
+SQL*Loader: Release 12.2.0.1.0 - Production on Wed Apr 15 14:23:08 2020
+
+Copyright (c) 1982, 2017, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   lineitem.ctl
+Data File:      lineitem.tbl
+  Bad File:     lineitem.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 10000
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table LINEITEM, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+L_ORDERKEY                          FIRST     *   |       CHARACTER            
+L_PARTKEY                            NEXT     *   |       CHARACTER            
+L_SUPPKEY                            NEXT     *   |       CHARACTER            
+L_LINENUMBER                         NEXT     *   |       CHARACTER            
+L_QUANTITY                           NEXT     *   |       CHARACTER            
+L_EXTENDEDPRICE                      NEXT     *   |       CHARACTER            
+L_DISCOUNT                           NEXT     *   |       CHARACTER            
+L_TAX                                NEXT     *   |       CHARACTER            
+L_RETURNFLAG                         NEXT     *   |       CHARACTER            
+L_LINESTATUS                         NEXT     *   |       CHARACTER            
+L_SHIPDATE                           NEXT     *   |       DATE YYYY-MM-DD      
+L_COMMITDATE                         NEXT     *   |       DATE YYYY-MM-DD      
+L_RECEIPTDATE                        NEXT     *   |       DATE YYYY-MM-DD      
+L_SHIPINSTRUCT                       NEXT     *   |       CHARACTER            
+L_SHIPMODE                           NEXT     *   |       CHARACTER            
+L_COMMENT                            NEXT     *   |       CHARACTER            
+
+value used for ROWS parameter changed from 64 to 62
+SQL*Loader-601: For INSERT option, table must be empty.  Error on table LINEITEM

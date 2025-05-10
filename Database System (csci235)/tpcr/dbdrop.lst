@@ -1,0 +1,31 @@
+SQL> 
+SQL> connect tpchr
+ERROR:
+ORA-01017: invalid username/password; logon denied 
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> 
+SQL> /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+SQL> /* The relational tables of TPC H benchmark database			      */
+SQL> /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+SQL> 
+SQL> DROP TABLE LINEITEM PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE ORDERS PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE CUSTOMER PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE PARTSUPP PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE SUPPLIER  PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE PART  PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE NATION PURGE;
+SP2-0640: Not connected
+SQL> DROP TABLE REGION	PURGE
+  2  
+SQL> disconnect
+SQL> 
+SQL> SPOOL OFF

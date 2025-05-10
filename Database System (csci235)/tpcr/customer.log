@@ -1,0 +1,35 @@
+
+SQL*Loader: Release 12.2.0.1.0 - Production on Wed Apr 15 14:23:08 2020
+
+Copyright (c) 1982, 2017, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   customer.ctl
+Data File:      customer.tbl
+  Bad File:     customer.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 10000
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table CUSTOMER, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+C_CUSTKEY                           FIRST     *   |       CHARACTER            
+C_NAME                               NEXT     *   |       CHARACTER            
+C_ADDRESS                            NEXT     *   |       CHARACTER            
+C_NATIONKEY                          NEXT     *   |       CHARACTER            
+C_PHONE                              NEXT     *   |       CHARACTER            
+C_ACCTBAL                            NEXT     *   |       CHARACTER            
+C_MKTSEGMENT                         NEXT     *   |       CHARACTER            
+C_COMMENT                            NEXT     *   |       CHARACTER            
+
+SQL*Loader-601: For INSERT option, table must be empty.  Error on table CUSTOMER

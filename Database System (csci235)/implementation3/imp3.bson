@@ -1,0 +1,30 @@
+{ profId : name,email,{ seminarId: description,seminarDate } }
+
+{ seminarId: description,seminarDate }
+
+
+
+{ enrolId: enrolDate,markReceived }
+
+
+
+
+
+{ profId : name,email,{ seminarId: description,seminarDate } }
+
+{ stdId: name,address,phone,{ enrolId: enrolDate,markReceived } }
+
+
+{ "profId": prof001, "name": "Adrian Tan", "email": "adriantan@hotmail.com", "instructs": 
+	[{ "seminarId":"sem001","description":"science class","seminarDate":"11/19/2021", 
+		"IN": {"stdID":"std001","name":"James Tan","address":"sengkang",phone:[99999999,99999997],
+			"enrolledIn":{"enrolId":"en001","enrolDate":"11/15/2021","markedReceived":"5"}} 
+	}]
+},
+
+{ "profId": prof002, "name": "Tan Ah Beng", "email": "ahbeng@hotmail.com", "instructs": 
+	[{ "seminarId":"sem002","description":"math class","seminarDate":"11/19/2021", 
+		"IN": {"stdID":"std002","name":"Christ Tan","address":"Hougang Rd #10-13",phone:[97777777,96666666],
+			"enrolledIn":{"enrolId":"en002","enrolDate":"11/15/2021","markedReceived":"1"}} 
+	}]
+}
