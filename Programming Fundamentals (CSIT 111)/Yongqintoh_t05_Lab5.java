@@ -1,0 +1,148 @@
+/*
+name: Yong Qin Toh
+clas: T05
+declaration: i can confirmthat this is my work
+file: Yongqintoh_t05_Lab5.java
+*/
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Yongqintoh_t05_Lab5 {
+  private static Scanner input;
+  private static Random rand;
+  static Integer correct_counter = 0;       //dummy vairiable to count
+  public static void getTwoIntegers(MyInteger m, MyInteger n) {
+    m.setInteger(rand.nextInt(10));
+    n.setInteger(rand.nextInt(10));
+  }
+  
+  public static char getOperator(){
+        String operatorString = "+-*";
+        char ch = operatorString.charAt((rand.nextInt(3)));
+        return ch;
+    }
+  
+  public static boolean checkAnswer(int x, int y, char oper, int answer) {
+    int correct_answer;
+    
+    switch (oper) {
+      case '+':
+        correct_answer = x + y;
+        break;
+      case '-':
+        correct_answer = x - y;
+        break;
+      case '*':
+        correct_answer = x * y;
+        break;
+      default:
+        correct_answer = 0;
+    }
+   
+    if (correct_answer == answer) {
+      correct_counter++;
+      System.out.println("Correct Answer");
+      return true;
+    }
+    else {
+      System.out.println("Wrong Answer");
+      return false;
+    }
+  }
+  
+  
+  
+  public static void main(String args []) {
+    
+    rand = new Random();
+    input = new Scanner(System.in);
+    MyInteger m = new MyInteger();
+    MyInteger n = new MyInteger();
+    
+    
+    System.out.println("Welcome to CSIT111 Arithmetic World");
+    System.out.println("You will solve 5 difficult arithmetic\n");
+    
+    
+    //Q1
+    getTwoIntegers(m,n);
+    char oper = getOperator();
+    System.out.printf("Question 1: %d %c %d = ?%n",m.getInteger(),oper,n.getInteger());
+    int answer_1 = input.nextInt();
+    input.nextLine();
+    checkAnswer(m.getInteger(),n.getInteger(),oper,answer_1);
+    System.out.println("------------------------------------------------------------");
+    
+    //Q2
+    getTwoIntegers(m,n);
+    oper = getOperator();
+    System.out.printf("Question 2: %d %c %d = ?%n",m.getInteger(),oper,n.getInteger());
+    int answer_2 = input.nextInt();
+    input.nextLine();
+    checkAnswer(m.getInteger(),n.getInteger(),oper,answer_2);
+    System.out.println("------------------------------------------------------------");
+    
+    
+    //Q3
+    getTwoIntegers(m,n);
+    oper = getOperator();
+    System.out.printf("Question 3: %d %c %d = ?%n",m.getInteger(),oper,n.getInteger());
+    int answer_3 = input.nextInt();
+    input.nextLine();
+    checkAnswer(m.getInteger(),n.getInteger(),oper,answer_3);
+    System.out.println("------------------------------------------------------------");
+    
+    
+    //Q4
+    oper = getOperator();
+    getTwoIntegers(m,n);
+    System.out.printf("Question 4: %d %c %d = ?%n",m.getInteger(),oper,n.getInteger());
+    int answer_4 = input.nextInt();
+    input.nextLine();
+    checkAnswer(m.getInteger(),n.getInteger(),oper,answer_4);
+    System.out.println("------------------------------------------------------------");
+    
+    
+    //Q5
+    oper = getOperator();
+    getTwoIntegers(m,n);
+    System.out.printf("Question 5: %d %c %d = ?%n",m.getInteger(),oper,n.getInteger());
+    int answer_5 = input.nextInt();
+    input.nextLine();
+    checkAnswer(m.getInteger(),n.getInteger(),oper,answer_5);
+    System.out.println("------------------------------------------------------------");
+    
+    
+    //total score
+    System.out.printf("Your score %d / 5, ",correct_counter);
+    if (correct_counter == 5) {
+      System.out.println("well done");
+    }
+    else {
+      System.out.println("hope you can score full mark next time");
+    }
+  }
+}
+
+
+
+class MyInteger {
+  
+  
+  private int n;
+  
+  public MyInteger() {}
+  
+  public MyInteger(int n) {
+    this.n = n;
+  }
+  
+  public int getInteger() {
+    return n;
+  }
+  
+  public void setInteger(int n) {
+    this.n = n;
+  }
+}

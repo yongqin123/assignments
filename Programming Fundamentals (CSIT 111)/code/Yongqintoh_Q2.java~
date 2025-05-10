@@ -1,0 +1,36 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class Yongqintoh_Q2 {
+  
+  
+  public static void main(String[] args) { 
+    if (x == 1 || x == 2)
+{
+            switch (ch)
+            {
+                        case 'a': System.out.println ("Good");
+                        case 'b': System.out.println ("Luck");
+            }
+}
+else if (x == 3 || x == 4)
+{
+            if (ch == 'c' || ch == 'd')
+                        System.out.println ("To");
+            else
+                        System.out.println ("Your);
+}
+else
+{
+            switch (ch)
+            {
+                        case 'e':
+                        case 'f': System.out.println ("Term");
+                        default : System.out.println ("Test");
+            }
+}
+  }
+  
+  /* ADD YOUR CODE HERE */
+  
+}

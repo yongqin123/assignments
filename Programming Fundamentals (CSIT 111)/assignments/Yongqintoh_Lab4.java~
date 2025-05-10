@@ -1,0 +1,42 @@
+/**
+ * Auto Generated Java Class.
+ */
+enum Type {Equilateral, Isosceles, Scalene, NotTriangle}
+
+class PossibleTriangle {
+  private int a;
+  private int b;
+  private int c;
+  private Type pt;
+  
+  public PossibleTriangle(int a, int b, int c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+  
+  private boolean isTriangle() {
+    return True;
+  }
+  
+  private Type getType() {
+    return Type.Scalene;
+  }
+  
+  public void displayInfo() {
+    System.out.println("asd");
+  }
+}
+
+
+
+public class Yongqintoh_Lab4 {
+  
+  
+  public static void main(String[] args) { 
+    
+  }
+  
+  /* ADD YOUR CODE HERE */
+  
+}

@@ -1,0 +1,21 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class TestArray {
+  
+  
+  public static void main(String[] args) { 
+    Object[] asd = new Object[2];
+    asd[0] = 1;
+    asd[1] = "asdasd";
+    System.out.println(asd[0].getClass().getName());
+    Object[] k = asd;
+    System.out.println(k[0]);
+    if (asd[1] == "asdasd"){
+      System.out.println("q");
+    }
+  }
+  
+  /* ADD YOUR CODE HERE */
+  
+}

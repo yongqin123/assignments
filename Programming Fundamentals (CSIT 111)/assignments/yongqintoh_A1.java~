@@ -1,0 +1,136 @@
+// Full Name: Yong Qin Toh
+// Full-time
+// Tutorial Group: t05
+// Declaration: I declare that it is my work and I have not pass the program on to anybody.
+// file: yongqintoh_A1
+
+import java.util.Scanner;
+//import java.util.Arrays;
+
+public class yongqintoh_A1 {
+ public static void main(String[] args) {
+   
+  //Task 1
+  final String LINES = "-----------------------------------";
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Welcome to iPhones online services");
+  System.out.println(LINES);
+  System.out.println("Enter three IPhones to be sold");
+  System.out.print(" 1.");
+  String a = sc.nextLine();
+
+  System.out.print(" 2.");
+  String b = sc.nextLine();
+
+  System.out.print(" 3.");
+  String c = sc.nextLine();
+  
+  //Task 2
+  System.out.printf("Enter the quantities and the costs for %s",a);
+  Integer d = sc.nextInt();
+  Double e = sc.nextDouble();
+  System.out.printf("Enter the quantities and the costs for %s",b);
+  Integer f = sc.nextInt();
+  Double g = sc.nextDouble();
+  System.out.printf("Enter the quantities and the costs for %s",c);
+  Integer h = sc.nextInt();
+  Double i = sc.nextDouble();
+  
+  System.out.println("Summary of iPhones");
+  System.out.println("------------------");
+  System.out.println("");
+  System.out.println("iPhone                    Quantity        Price    ");
+  System.out.println("--------------------------------------------------");
+  System.out.printf("%s                %d            %.2f      %n",a,d,e);
+  System.out.printf("%s                 %d            %.2f      %n",b,f,g);
+  System.out.printf("%s                 %d            %.2f      %n",c,h,i);
+  
+  Object[] number_1 = new Object[] {a,d,e};
+  Object[] number_2 = new Object[] {b,f,g};
+  Object[] number_3 = new Object[] {c,h,i};
+  
+  //Task 3
+  System.out.println("\n//Task3");
+  
+  
+  String temp_a = a;
+  String temp_b = b;
+  
+  b = temp_a;
+  a = temp_b;
+  
+  Integer temp_d = d;
+  Double temp_e = e;
+  
+  
+  
+  Integer temp_f = f;
+  Double temp_g = g;
+  
+  
+  
+  Integer temp_h = h;
+  Double temp_i = i;
+  
+  f= temp_d;
+  d = temp_f;
+  
+  e = temp_g;
+  g = temp_e;
+  
+  System.out.println("Summary of iPhones after the swaps");
+  System.out.println("----------------------------------");
+  System.out.println("");
+  System.out.println("iPhone                    Quantity        Price    ");
+  System.out.println("--------------------------------------------------");
+  System.out.printf("%s                %d              %.2f      %n",a,d,e);
+  System.out.printf("%s                  %d           %.2f      %n",b,f,g);
+  System.out.printf("%s                  %d            %.2f      %n",c,h,i);
+  
+  //Task4
+  System.out.println("//Task4");
+  System.out.println("----------------------------------------");
+  System.out.println("Please place your order");
+  System.out.println("------------------------");
+  System.out.printf("No of %s",a);
+  Integer j = sc.nextInt();
+  System.out.printf("No of %s",b);
+  Integer k = sc.nextInt();  
+  System.out.printf("No of %s",c);
+  Integer l = sc.nextInt();
+  
+  Double cost_a = j * e;
+  Double cost_b = k * g;
+  Double cost_c = l * i;
+  Double sub_total = cost_b + cost_a + cost_c;
+  Double gst = sub_total * 0.07;
+  Double total_cost = sub_total + gst;
+  
+  System.out.println("----------------------");
+  System.out.println("Summary of your order");
+  System.out.println("----------------------");
+  System.out.println("iPhone                    Quantity        Cost    ");
+  System.out.println("--------------------------------------------------");
+  System.out.printf("%s                %d              %.2f      %n",a,j,cost_a);
+  System.out.printf("%s               %d              %.2f      %n",b,k,cost_b);
+  System.out.printf("%s                %d              %.2f      %n",c,l,cost_c);
+  System.out.println("--------------------------------------------------");
+  System.out.printf("Subtotal:                                    %.2f%n",sub_total);
+  System.out.printf("GST (7%%):                                    %.2f%n", gst);
+  System.out.printf("Total cost:                                  %.2f%n",total_cost);
+  System.out.printf("--------------------------------------------------%n");
+  
+  //Task 5
+  System.out.println("//Task 5");
+  System.out.println("Balance report");
+  System.out.println("----------------------");
+  System.out.println("");
+  System.out.println("iPhone                    Quantity        Sold         Balance");
+  System.out.println("---------------------------------------------------------------");
+  System.out.printf("%s                %d              %d            %d %n",a,d,j,d-j);
+  System.out.printf("%s               %d              %d             %d %n",b,f,k,f-k);
+  System.out.printf("%s                %d              %d            %d %n",c,h,l,h-l);
+  System.out.println("---------------------------------------------------------------");
+  
+ }
+}

@@ -1,0 +1,68 @@
+java.util.Scanner;
+java.util.Random;
+
+
+public class Yongqintoh_TestQ5 {
+  static Scanner sc = new Scanner(System.in);
+  static Random rand = new Random();
+  
+  private PetType getPet() {
+    
+    int pick = rand.nextInt(PetType.values().length);
+    return PetType.values()[pick];
+  }
+  
+  private double getCost() {
+    return rand.nextDouble() + 100.0;
+  }
+  
+  private get3pets(Pet p1, Pet p2, Pet p3) {
+    p1.setInfo(getPt(),getCost());
+    p2.setInfo(getPt(),getCost());
+    p3.setInfo(getPt(),getCost());
+  }
+  
+  public static void main(String[] args) { 
+    Pet p1 = new Pet();
+    Pet p2 = new Pet();
+    Pet p3 = new Pet();
+    get3pets(p1,p2,p3);
+  }
+  
+  enum PetType {Dog, Cat, Mouse, Duck, Cow}
+  
+  class Pet {
+    private PetType pt;
+    private double cost;
+    
+    public Pet() {}
+    
+    public Pet(PetType pt, double cost) {
+      this.pt = pt;
+      this.cost = cost;
+    }
+    
+    public Pet(Pet p) {
+      this(p.pt, p.cost);
+    }
+    
+    public PetType getPet() {
+      return pt;
+    }
+    
+    public void setInfo(PetType pt, double cost) {
+      this.pt = pt;
+      this.cost = cost;
+    }
+    
+    private double totalCost() {
+      return cost*1.07;
+    }
+    
+    public void displayInfo() {
+      System.out.printf("Pet: %s%n", pt);
+      System.out.print
+    }
+  }
+  
+}

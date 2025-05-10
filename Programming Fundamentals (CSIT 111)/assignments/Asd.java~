@@ -1,0 +1,15 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class Asd {
+  
+  
+  public static void main(String[] args) { 
+    Float sub_total = 78148.60f;
+    Float gst = sub_total * 7 / 100;
+    System.out.println(gst.getClass().getName());
+  }
+  
+  /* ADD YOUR CODE HERE */
+  
+}

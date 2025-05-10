@@ -1,0 +1,54 @@
+/**
+ * Auto Generated Java Class.
+ */
+public class TestTime_1() { 
+  public static void main(String[] args) {
+    Time t0 = new Time(11,12,13);
+    t0.displayTime();
+  }
+ }
+
+
+class Time {
+    private int hours;
+    private int minutes;
+    private int seconds;
+    
+    // constructor
+    public Time() {}
+    
+    public Time(int hours, int minutes, int seconds) {
+      this.hours = hours;
+      this.minutes = minutes;
+      this.seconds = seconds;
+    }
+    public Time(Time t) {
+      this.hours = t.hours;
+      this.minutes = t.minutes;
+      this.seconds = t.seconds;
+    }
+    public int getHours() {
+      return hours;
+    }
+    public int getMinutes() {
+      return minutes;
+    }
+    public int getSeconds() {
+      return seconds;
+    }
+    public void setHours(int hours) {
+      this.hours = hours;
+    }
+    public void setMinutes(int minutes) {
+      this.minutes = minutes;
+    }
+    public void setSeconds(int seconds) {
+      this.seconds = seconds;
+    }
+    public void displayTime() {
+      System.out.printf("Current TIme is %d %d %d", this.hours,this.minutes,this.seconds);
+    }
+}  
+
+
+

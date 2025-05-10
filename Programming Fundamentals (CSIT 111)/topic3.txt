@@ -1,0 +1,80 @@
+from Kim Wei Hao to everyone:    5:26 PM
+there is gold i think
+from Ambrose Alexius Pereira to everyone:    5:27 PM
+but if he is a knave then how?
+from Gavin Chee Keat Yuen to everyone:    5:28 PM
+^
+from Joon Wee to everyone:    5:28 PM
+i dont get the logic where if (A is false = A is false)= G is false?
+from Paul Phyo Min Tun to all attendees:    5:30 PM
+if he knave then A is F and there is no gold on the island so G also false so A still equivalent to G
+from Calvin Wen Kai Wang to everyone:    5:30 PM
+^
+from Ambrose Alexius Pereira to everyone:    5:31 PM
+if g is false, then how is there gold on the island?
+from Joon Wee to everyone:    5:31 PM
+yeah but he say can conclude there is gold?
+from Doyul Kim to everyone:    5:35 PM
+yes
+from Wei Jie Alvin Teo to everyone:    5:35 PM
+yes
+from Ambrose Alexius Pereira to everyone:    5:35 PM
+i dont get it
+from Wei Yang Ng to everyone:    5:35 PM
+yes
+from Brandon Wei Ding Han to everyone:    5:35 PM
+kind of get it
+from Brandon Wei Ding Han to everyone:    5:35 PM
+but unsure if what i know is correct
+from Tysen Tysen to everyone:    5:36 PM
+same
+from Gavin Chee Keat Yuen to everyone:    5:36 PM
+so are we assuming that the native's statement is true?
+from Ambrose Alexius Pereira to everyone:    5:37 PM
+if he says he is a knave, and there is no gold on the island, then he can make the statement "There is gold and I am a knight"  which would be consistent. So in that case how do we know if there is gold?
+from Gavin Chee Keat Yuen to everyone:    5:37 PM
+that "the statement 'there is gold on the island' and the statement 'I am a knight' are either both true or both false" is assumed to be true?
+from Matthew Yu Jie Chua to everyone:    5:37 PM
+Using Equivalence, we can rule out that only 2 out of the 4 situations can happen where ( A = ( A = G) = T. Something like ruling out the fact that it 100% cannot happen 
+from Matthew Yu Jie Chua to everyone:    5:38 PM
+then according to the truth table, in those 2 situations which can happen, both situations state that the probability that there is gold on the island is 100%
+from Joon Wee to everyone:    5:40 PM
+so in a way we following calculational logic and not legit logic? bc i assume G = true because A=A and thats a true?
+from Kim Wei Hao to everyone:    5:41 PM
+A is whether is knight or knave, g is whetehr there is gold, A = G is what they say whether there is gold, A = (A = G) is whether they say they are a knight but it is A = (A = G) because they are either both true or false, i think that is how that works
+from Matthew Yu Jie Chua to everyone:    5:41 PM
+ Equivalence states that the result is only T  if both A and G are T or both are F
+from Jia Jie Leong to all attendees:    5:42 PM
+So we only take into account what is absolutely true?
+from Matthew Yu Jie Chua to everyone:    5:42 PM
+yes
+from Matthew Yu Jie Chua to everyone:    5:42 PM
+for this case
+from Dinie Ahmad to everyone:    5:42 PM
+ so its true either ways?
+from Zuokai Ong to everyone:    5:42 PM
+why the fourth case is not possible?
+from Ambrose Alexius Pereira to everyone:    5:43 PM
+wait how do you know that A=(A=G) ? if A is F and G is F, A=G =T, while A=(A=G) =F, which still works
+from Matthew Yu Jie Chua to everyone:    5:43 PM
+no point taking into consideration a possibility that will 100% not occur
+from YingCheng Yin to everyone:    5:43 PM
+because a=(a=g) is always true
+from YingCheng Yin to everyone:    5:43 PM
+4th row shows that is it false
+from YingCheng Yin to everyone:    5:43 PM
+so its not considered
+from Wei Jie Alvin Teo to everyone:    5:43 PM
+A = G is True cause A is F and g is F
+from Ambrose Alexius Pereira to everyone:    5:44 PM
+why cant it be ~A=(~A=~G)?
+from Aung Khant Kyaw to everyone:    5:45 PM
+Anyboody thinks T=1, F=0? Just like digital logic, if you've learnt before in poly..
+from Matthew Yu Jie Chua to everyone:    5:46 PM
+^ its the same as binary logic
+from Aung Khant Kyaw to everyone:    5:46 PM
+Ikr
+from Matthew Yu Jie Chua to everyone:    5:46 PM
+because using same operators
+from Aung Khant Kyaw to everyone:    5:47 PM
+yup

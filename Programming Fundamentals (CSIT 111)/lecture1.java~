@@ -1,0 +1,29 @@
+public class lecture1 {
+  
+  
+  public static void main(String[] args) { 
+    
+    //Declare variables
+    double radius,area,circumference;
+    
+    //Assign a value to radius
+    radius = 12345;
+    
+    //Compute the area and the circumferences
+    area = 3.14159 * radius * radius;
+    circumference = 2.0 * 3.14159 * radius;
+    
+    //Display the results
+    System.out.print("Radius = ");
+    System.out.println(radius);
+    
+    System.out.print("area = ");
+    System.out.println(area);
+    
+    System.out.print("circumference = ");
+    System.out.println(circumference);
+    }
+  
+  /* ADD YOUR CODE HERE */
+  
+}
