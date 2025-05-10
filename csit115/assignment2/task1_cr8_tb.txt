@@ -1,0 +1,65 @@
+CREATE TABLE Chef (
+passportNumber   VCHAR(20)    NOT NULL,
+culinaryCerts    VCHAR(300)   NOT NULL,
+competitionExpr  VCHAR(300)   NULL,
+
+CONSTRAINT Chef_pkey PRIMARY KEY(passportNumber),
+CONSTRAINT Chef_fkey FOREIGN KEY(passportNumber) REFERENCES Person(passportName)
+);
+
+CREATE TABLE Specialty (
+specialtyNumber CHAR(3)      NOT NULL,
+description     VCHAR(100)   NOT NULL,
+ingredients     VCHAR(300)   NOT NULL,
+recipe          VCHAR(1000)  NULL,
+
+CONSTRAINT Specialty_pkey PRIMARY KEY(specialtyNumber),
+CONSTRAINT Specialty_check1 CHECK (specialtyNumber BETWEEN 0 AND 999)
+);
+
+CREATE TABLE PartyEvent (
+passportNumber_Chef    VCHAR(20)  NOT NULL,
+eventID                CHAR(10)   NOT NULL,
+partySize              CHAR(3)    NOT NULL,
+cusinePkg              VCHAR(100) NOT NULL,
+eventDate              DATE       NOT NULL,
+eventTime              TIME       NOT NULL,  
+eventVenue             VCHAR(50)  NOT NULL,
+passportNumber_Client  VCHAR(20)  NOT NULL,
+
+CONSTRAINT PE_pkey PRIMARY KEY(eventID),
+CONSTRAINT PE_ckey1 UNIQUE KEY(eventDate),
+CONSTRAINT PE_ckey2 UNIQUE KEY(eventTime),
+CONSTRAINT PE_ckey3 UNIQUE KEY(eventVenue),
+CONSTRAINT PE_fkey1 FOREIGN KEY(passportNumber_Chef) REFERENCES Chef(passportNumber),
+CONSTRAINT PE_fkey2 FOREIGN KEY(passportNumber_Client) REFERENCES Client(passportNumber),
+CONSTRAINT PE_check CHECK (partySize BETWEEN 0 AND 999)
+);
+
+CREATE TABLE Person (
+passportNumber     VCHAR(20)  NOT NULL,
+firstName          VCHAR(30)  NOT NULL,
+lastName           VCHAR(30)  NOT NULL,
+dateOfBirth        DATE       NOT NULL,
+gender             CHAR(1)    NOT NULL,
+address            VCHAR(50)  NOT NULL,
+telNo              VCHAR(20)  NULL,
+email              VCHAR(50)  NOT NULL,
+
+CONSTRAINT Person_pkey PRIMARY KEY(passportNumber),
+CONSTRAINT Person_ckey1 UNIQUE KEY(firstName),
+CONSTRAINT Person_ckey2 UNIQUE KEY(lastName),
+CONSTRAINT Person_ckey3 UNIQUE KEY(dateOfBirth),
+CONSTRAINT Person_check CHECK (in ('M', 'F', 'O')
+);
+
+CREATE TABLE Client (
+passportNumber     VCHAR(20)  NOT NULL,
+preferredCuisine   VCHAR(100) NULL,
+preferredPaymType  VCHAR(20)  NOT NULL,
+creditCardNumber   VCHAR(20)  NULL,
+creditCardType     VCHAR(20)  NULL,
+issuingBank        VCHAR(50)  NULL,
+
+CONSTRAINT Client_pkey PRIMARY KEY(passportNumber)
+);

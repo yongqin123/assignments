@@ -1,0 +1,39 @@
+-Chef-                   
+passportNumber PK FK REFERENCES Person(passportNumber)
+culinaryCerts
+competitionExpr
+
+-Specialty-
+specialityNumber PK
+description
+ingredients
+recipe
+
+-PartyEvent-
+passportNumber_Chef FK1 REFERENCES Chef(passportNumber)
+eventID   PK
+partySize
+cusinePkg
+eventDate  CK
+eventTime  CK
+eventVenue CK
+passportNumber_Client FK2 REFERENCES Client(passportNumber)
+
+-Person-
+passportNumber PK 
+firstName CK
+lastName CK
+dateOfBirth  CK
+gender 
+address
+telNo
+email
+
+-Client-
+passportNumber PK FK REFERENCES Person(passportNumber)
+preferredCuisine
+preferredPaymType
+creditCardNumber
+creditCardType
+issuingBank
+

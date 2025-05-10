@@ -1,0 +1,124 @@
+mysql> /* task 1 part A q1*/
+mysql> CREATE USER yqt817_1 IDENTIFIED BY 'yqt817_1';
+--------------
+CREATE USER yqt817_1 IDENTIFIED BY 'yqt817_1'
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE USER yqt817_2 IDENTIFIED BY 'yqt817_2';
+--------------
+CREATE USER yqt817_2 IDENTIFIED BY 'yqt817_2'
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE USER yqt817_3 IDENTIFIED BY 'yqt817_3';
+--------------
+CREATE USER yqt817_3 IDENTIFIED BY 'yqt817_3'
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> 
+mysql> /* task 1 part A q2 */
+mysql> GRANT INSERT, UPDATE, DELETE, SELECT, ALTER, DROP ON yqt817.*  TO yqt817_1;
+--------------
+GRANT INSERT, UPDATE, DELETE, SELECT, ALTER, DROP ON yqt817.*  TO yqt817_1
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> /* task 1 part A q3 */
+mysql> GRANT CREATE VIEW, SELECT ON yqt817.BOOK TO yqt817_2;
+--------------
+GRANT CREATE VIEW, SELECT ON yqt817.BOOK TO yqt817_2
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT CREATE VIEW, SELECT ON yqt817.AUTHOR TO yqt817_2;
+--------------
+GRANT CREATE VIEW, SELECT ON yqt817.AUTHOR TO yqt817_2
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> /* task 1 part A q4 */
+mysql> ALTER USER yqt817_3 WITH MAX_QUERIES_PER_HOUR 100;
+--------------
+ALTER USER yqt817_3 WITH MAX_QUERIES_PER_HOUR 100
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> ALTER USER yqt817_3 WITH MAX_UPDATES_PER_HOUR 10;
+--------------
+ALTER USER yqt817_3 WITH MAX_UPDATES_PER_HOUR 10
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> /* task 1 part A q5 */
+mysql> ALTER USER yqt817_2 PASSWORD EXPIRE;
+--------------
+ALTER USER yqt817_2 PASSWORD EXPIRE
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> notee
+mysql> /* task 1 part A q6 */
+mysql> SELECT user, db, insert_priv, update_priv, delete_priv, select_priv, alter_priv, drop_priv FROM mysql.db where db='yqt817';
+--------------
+SELECT user, db, insert_priv, update_priv, delete_priv, select_priv, alter_priv, drop_priv FROM mysql.db where db='yqt817'
+--------------
+
++----------+--------+-------------+-------------+-------------+-------------+------------+-----------+
+| user     | db     | insert_priv | update_priv | delete_priv | select_priv | alter_priv | drop_priv |
++----------+--------+-------------+-------------+-------------+-------------+------------+-----------+
+| yqt817_1 | yqt817 | Y           | Y           | Y           | Y           | Y          | Y         |
++----------+--------+-------------+-------------+-------------+-------------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT user, db, table_name, table_priv FROM mysql.tables_priv where user='yqt817_2';
+--------------
+SELECT user, db, table_name, table_priv FROM mysql.tables_priv where user='yqt817_2'
+--------------
+
++----------+--------+------------+--------------------+
+| user     | db     | table_name | table_priv         |
++----------+--------+------------+--------------------+
+| yqt817_2 | yqt817 | AUTHOR     | Select,Create View |
+| yqt817_2 | yqt817 | BOOK       | Select,Create View |
++----------+--------+------------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> select User, max_questions, max_updates FROM mysql.user WHERE User in ('yqt817_3');
+--------------
+select User, max_questions, max_updates FROM mysql.user WHERE User in ('yqt817_3')
+--------------
+
++----------+---------------+-------------+
+| User     | max_questions | max_updates |
++----------+---------------+-------------+
+| yqt817_3 |           100 |          10 |
++----------+---------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select user, password_expired  from mysql.user where user = 'yqt817_2';
+--------------
+select user, password_expired  from mysql.user where user = 'yqt817_2'
+--------------
+
++----------+------------------+
+| user     | password_expired |
++----------+------------------+
+| yqt817_2 | Y                |
++----------+------------------+
+1 row in set (0.00 sec)
+
+mysql> notee

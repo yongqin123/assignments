@@ -1,0 +1,104 @@
+mysql> source FT_TutGrp3_A2-T2_7059073_YONGQINTOH_SQLStmts.sql;
+--------------
+SELECT EMPLOYEE.employee_id, EMPLOYEE.first_name, EMPLOYEE.last_name, EMPLOYEE.job_title, EMPLOYEE.email FROM EMPLOYEE
+WHERE EMPLOYEE.department_name IN
+(SELECT DEPARTMENT.department_name FROM DEPARTMENT 
+WHERE DEPARTMENT.country_name IN (SELECT country_name FROM COUNTRY WHERE region_name = "Asia"))
+--------------
+
++-------------+------------+------------+--------------------------------+----------+
+| employee_id | first_name | last_name  | job_title                      | email    |
++-------------+------------+------------+--------------------------------+----------+
+|         201 | Michael    | Hartstein  | Marketing Manager              | MHARTSTE |
+|         202 | Pat        | Fay        | Marketing Representative       | PFAY     |
+|         114 | Den        | Raphaely   | Purchasing Manager             | DRAPHEAL |
+|         115 | Alexander  | Khoo       | Purchasing Clerk               | AKHOO    |
+|         116 | Shelli     | Baida      | Purchasing Clerk               | SBAIDA   |
+|         117 | Sigal      | Tobias     | Purchasing Clerk               | STOBIAS  |
+|         118 | Guy        | Himuro     | Purchasing Clerk               | GHIMURO  |
+|         119 | Karen      | Colmenares | Purchasing Clerk               | KCOLMENA |
+|         203 | Susan      | Mavris     | Human Resources Representative | SMAVRIS  |
++-------------+------------+------------+--------------------------------+----------+
+9 rows in set (0.00 sec)
+
+--------------
+SELECT EMPLOYEE.employee_id, EMPLOYEE.first_name, EMPLOYEE.last_name, EMPLOYEE.job_title, EMPLOYEE.supervisor_id FROM EMPLOYEE
+JOIN
+(SELECT * FROM
+(SELECT employee_id, start_date, end_date, department_name, timestampdiff(month, JOBHISTORY.start_date, JOBHISTORY.end_date) AS difference FROM JOBHISTORY
+WHERE (department_name = "Information Technology"))a
+WHERE difference>=36)b
+ON b.employee_id = EMPLOYEE.employee_id
+--------------
+
++-------------+------------+-----------+-------------------------------+---------------+
+| employee_id | first_name | last_name | job_title                     | supervisor_id |
++-------------+------------+-----------+-------------------------------+---------------+
+|         102 | Lex        | De Haan   | Administration Vice President |           100 |
+|         201 | Michael    | Hartstein | Marketing Manager             |           100 |
+|         205 | Shelley    | Higgins   | Accounting Manager            |           101 |
++-------------+------------+-----------+-------------------------------+---------------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM
+(SELECT a.employee_id, a.first_name, a.last_name, a.hire_date, a.salary, COUNT(*)total_employees FROM
+(SELECT employee_id, first_name, last_name, hire_date, salary FROM EMPLOYEE
+WHERE EMPLOYEE.employee_id IN (SELECT DISTINCT supervisor_id FROM EMPLOYEE))a
+JOIN EMPLOYEE
+ON a.employee_id = EMPLOYEE.supervisor_id
+GROUP BY a.employee_id)b 
+WHERE total_employees >= 8
+--------------
+
++-------------+------------+-----------+------------+----------+-----------------+
+| employee_id | first_name | last_name | hire_date  | salary   | total_employees |
++-------------+------------+-----------+------------+----------+-----------------+
+|         100 | Steven     | King      | 1987-06-17 | 24000.00 |              14 |
+|         120 | Matthew    | Weiss     | 1996-07-18 |  8000.00 |               8 |
+|         121 | Adam       | Fripp     | 1997-04-10 |  8200.00 |               8 |
+|         122 | Payam      | Kaufling  | 1995-05-01 |  7900.00 |               8 |
+|         123 | Shanta     | Vollman   | 1997-10-10 |  6500.00 |               8 |
+|         124 | Kevin      | Mourgos   | 1999-11-16 |  5800.00 |               8 |
++-------------+------------+-----------+------------+----------+-----------------+
+6 rows in set (0.00 sec)
+
+--------------
+UPDATE EMPLOYEE SET supervisor_id = 110 WHERE supervisor_id = 114
+--------------
+
+Query OK, 5 rows affected (0.02 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+--------------
+UPDATE DEPARTMENT SET manager_id = 110 WHERE manager_id = 114
+--------------
+
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+DELETE FROM JOBHISTORY WHERE employee_id=114
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+DELETE FROM EMPLOYEE WHERE employee_id=114
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+INSERT INTO JOB VALUES ("VIP Customer Relations",6000,18000)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+INSERT INTO EMPLOYEE VALUES (888,"Pamela","Anderson","pam.anderson",null, str_to_date("18/10/2018","%d/%m/%Y"), "VIP Customer Relations",8880, null,204, "Public Relations")
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> notee;

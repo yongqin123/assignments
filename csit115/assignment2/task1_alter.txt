@@ -1,0 +1,11 @@
+(i)
+
+
+(ii)
+ALTER TABLE Chef MODIFY competitionExpr VCHAR(1000) NULL;
+
+(iii)
+ALTER TABLE PartyEvent ADD COLUMN duration CHAR(2);
+
+(iv)
+ALTER TABLE Client ADD COLUMN countryOfOrigin VCHAR(40);

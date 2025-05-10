@@ -1,0 +1,17 @@
+mysql> source FT_TutGrp3_A3-T2a_7059073_YONGQINTOH_Sql.sql;
+--------------
+SELECT CONCAT("A purchase with the purchase ID of ",ONLINEPURCHASE.PurchaseID," is an online purchase of type ", ONLINEPURCHASE.OnlineType," and also a walkin purchase of location ", WALKINPURCHASE.ShopLocation) AS Message FROM WALKINPURCHASE INNER JOIN ONLINEPURCHASE ON WALKINPURCHASE.PurchaseID = ONLINEPURCHASE.PurchaseID
+--------------
+
++--------------------------------------------------------------------------------------------------------------------------+
+| Message                                                                                                                  |
++--------------------------------------------------------------------------------------------------------------------------+
+| A purchase with the purchase ID of 50010 is an online purchase of type 1 and also a walkin purchase of location Jurong   |
+| A purchase with the purchase ID of 50011 is an online purchase of type 1 and also a walkin purchase of location Clementi |
+| A purchase with the purchase ID of 50017 is an online purchase of type 2 and also a walkin purchase of location Clementi |
+| A purchase with the purchase ID of 50018 is an online purchase of type 1 and also a walkin purchase of location Jurong   |
+| A purchase with the purchase ID of 50019 is an online purchase of type 2 and also a walkin purchase of location Clementi |
++--------------------------------------------------------------------------------------------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> notee

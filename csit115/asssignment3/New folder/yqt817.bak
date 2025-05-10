@@ -1,0 +1,216 @@
+-- MySQL dump 10.13  Distrib 8.0.18, for Linux (x86_64)
+--
+-- Host: localhost    Database: csit115
+-- ------------------------------------------------------
+-- Server version	8.0.18
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `csit115`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `csit115` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `csit115`;
+
+--
+-- Table structure for table `AUTHOR`
+--
+
+DROP TABLE IF EXISTS `AUTHOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `AUTHOR` (
+  `AuthorID` varchar(12) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  PRIMARY KEY (`AuthorID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AUTHOR`
+--
+
+LOCK TABLES `AUTHOR` WRITE;
+/*!40000 ALTER TABLE `AUTHOR` DISABLE KEYS */;
+INSERT INTO `AUTHOR` VALUES ('10002','Richard Teng'),('10003','Josephine Teo'),('10004','Peng Da Hiang'),('10005','Seng Chin Chay'),('10006','Joshua Chua'),('10007','Mohamad Ali'),('10008','Alice Cheng'),('10009','Teo Peng How'),('10010','Chan Ting Ting'),('10012','Sabrina Lee'),('10013','Vivian Teo'),('10014','Ricardo	Budidharma'),('10015','Aliyah Kamal'),('10016','Muhammad Kali'),('10017','Mohamad Shafiq'),('10018','Gina Cheng'),('10019','Teo Peng How'),('10020','Chia Boon Boon'),('10022','Prathyaksha'),('10023','Sim Yao Zu'),('10024','Tony Lim');
+/*!40000 ALTER TABLE `AUTHOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `yqt817_DOC`
+--
+
+DROP TABLE IF EXISTS `yqt817_DOC`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `yqt817_DOC` (
+  `BookID` varchar(12) NOT NULL,
+  `Title` varchar(80) NOT NULL,
+  `Price` decimal(4,2) NOT NULL,
+  PRIMARY KEY (`BookID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `yqt817_DOC`
+--
+
+LOCK TABLES `yqt817_DOC` WRITE;
+/*!40000 ALTER TABLE `yqt817_DOC` DISABLE KEYS */;
+INSERT INTO `yqt817_DOC` VALUES ('20099','Taipei 101',20.99),('20100','Bangkok 101',20.99),('20101','Malaysia Travel',29.99),('20102','Indonesia Travel',25.99),('20103','Vietnam Travel',20.99),('20104','Travel to USA',19.88),('20105','Travel to Europe',25.88),('20106','Travel to China',22.88),('20107','Travel to Singapore',20.88),('20108','Travel to Myanmar',21.88),('20109','Travel to Japan',20.88),('20200','Java for Beginner',30.00),('20201','UML Bible',59.00),('20202','SQL Make Simple',35.00),('20203','MySQL Easy',45.00),('20204','Microsoft SQL Server',59.00),('20205','Database Fundamental',35.00),('20206','ASP.NET Introduction',30.00),('20207','Advance C++',50.00),('20208','Network Security',50.00),('20209','IOT and Big Data',30.00);
+/*!40000 ALTER TABLE `yqt817_DOC` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BOOKAUTHOR`
+--
+
+DROP TABLE IF EXISTS `BOOKAUTHOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `BOOKAUTHOR` (
+  `BookID` varchar(12) NOT NULL,
+  `AuthorID` varchar(12) NOT NULL,
+  PRIMARY KEY (`BookID`,`AuthorID`),
+  KEY `BOOKAUTHOR_FKEY2` (`AuthorID`),
+  CONSTRAINT `BOOKAUTHOR_FKEY1` FOREIGN KEY (`BookID`) REFERENCES `BOOK` (`BookID`),
+  CONSTRAINT `BOOKAUTHOR_FKEY2` FOREIGN KEY (`AuthorID`) REFERENCES `AUTHOR` (`AuthorID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BOOKAUTHOR`
+--
+
+LOCK TABLES `BOOKAUTHOR` WRITE;
+/*!40000 ALTER TABLE `BOOKAUTHOR` DISABLE KEYS */;
+INSERT INTO `BOOKAUTHOR` VALUES ('20099','10002'),('20100','10003'),('20101','10004'),('20102','10005'),('20103','10006'),('20104','10007'),('20105','10008'),('20106','10009'),('20107','10010'),('20108','10012'),('20109','10013'),('20200','10014'),('20201','10015'),('20202','10016'),('20203','10017'),('20204','10018'),('20205','10019'),('20206','10020'),('20207','10022'),('20208','10023'),('20209','10024');
+/*!40000 ALTER TABLE `BOOKAUTHOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CUSTOMER`
+--
+
+DROP TABLE IF EXISTS `CUSTOMER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `CUSTOMER` (
+  `CustomerID` varchar(12) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  PRIMARY KEY (`CustomerID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CUSTOMER`
+--
+
+LOCK TABLES `CUSTOMER` WRITE;
+/*!40000 ALTER TABLE `CUSTOMER` DISABLE KEYS */;
+INSERT INTO `CUSTOMER` VALUES ('90001','Robert Chan'),('90002','Christopher Teo'),('90003','Christina Chua'),('90004','William Chan'),('90005','Tan Peng Peng'),('90006','Ronado'),('90007','Adrian'),('90008','Benjamin'),('90009','Bryan'),('90010','Dale'),('90011','Devan Nair'),('90013','Shanmugam'),('90014','Balakrishnan'),('90015','Dhanabalan'),('90016','Aisha'),('90017','Nadia'),('90018','Imran'),('90019','Fatimah'),('90020','Sharifah'),('90022','Tharman');
+/*!40000 ALTER TABLE `CUSTOMER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ONLINEPURCHASE`
+--
+
+DROP TABLE IF EXISTS `ONLINEPURCHASE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ONLINEPURCHASE` (
+  `PurchaseID` varchar(12) NOT NULL,
+  `OnlineType` varchar(12) NOT NULL,
+  PRIMARY KEY (`PurchaseID`),
+  CONSTRAINT `ONLINEPURCHASE_FKEY1` FOREIGN KEY (`PurchaseID`) REFERENCES `PURCHASE` (`PurchaseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ONLINEPURCHASE`
+--
+
+LOCK TABLES `ONLINEPURCHASE` WRITE;
+/*!40000 ALTER TABLE `ONLINEPURCHASE` DISABLE KEYS */;
+INSERT INTO `ONLINEPURCHASE` VALUES ('50001','1'),('50002','2'),('50003','3'),('50004','2'),('50005','1'),('50006','2'),('50007','3'),('50010','1'),('50011','1'),('50013','1'),('50014','1'),('50015','1'),('50016','1'),('50017','2'),('50018','1'),('50019','2'),('50020','3'),('50021','2'),('50022','2'),('50023','3'),('50024','2');
+/*!40000 ALTER TABLE `ONLINEPURCHASE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PURCHASE`
+--
+
+DROP TABLE IF EXISTS `PURCHASE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `PURCHASE` (
+  `PurchaseID` varchar(12) NOT NULL,
+  `PurchaseQty` decimal(4,0) NOT NULL,
+  `PurchaseDate` date NOT NULL,
+  `BookID` varchar(12) NOT NULL,
+  `CustomerID` varchar(12) NOT NULL,
+  PRIMARY KEY (`PurchaseID`),
+  KEY `PURCHASE_FKEY1` (`BookID`),
+  KEY `PURCHASE_FKEY2` (`CustomerID`),
+  CONSTRAINT `PURCHASE_FKEY1` FOREIGN KEY (`BookID`) REFERENCES `BOOK` (`BookID`),
+  CONSTRAINT `PURCHASE_FKEY2` FOREIGN KEY (`CustomerID`) REFERENCES `CUSTOMER` (`CustomerID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PURCHASE`
+--
+
+LOCK TABLES `PURCHASE` WRITE;
+/*!40000 ALTER TABLE `PURCHASE` DISABLE KEYS */;
+INSERT INTO `PURCHASE` VALUES ('50001',1,'2018-03-01','20100','90001'),('50002',2,'2018-04-01','20101','90002'),('50003',5,'2018-05-01','20103','90003'),('50004',1,'2018-06-01','20104','90004'),('50005',1,'2018-03-02','20105','90001'),('50006',1,'2018-04-03','20106','90002'),('50007',1,'2018-05-04','20107','90003'),('50008',1,'2018-06-05','20108','90013'),('50009',10,'2018-07-01','20100','90014'),('50010',1,'2018-08-01','20101','90015'),('50011',1,'2018-09-01','20103','90016'),('50012',1,'2018-10-01','20104','90013'),('50013',100,'2018-07-02','20105','90014'),('50014',1,'2018-08-03','20106','90015'),('50015',1,'2018-09-04','20107','90016'),('50016',1,'2018-10-05','20108','90007'),('50017',6,'2018-07-02','20105','90007'),('50018',7,'2018-08-03','20106','90008'),('50019',2,'2018-09-04','20107','90009'),('50020',1,'2018-10-05','20108','90009'),('50021',1,'2018-09-01','20103','90016'),('50022',1,'2018-10-01','20104','90013'),('50023',50,'2018-07-02','20105','90014'),('50024',1,'2018-08-03','20206','90015'),('50025',1,'2018-06-04','20207','90016'),('50026',10,'2018-10-05','20208','90017'),('50027',1,'2018-06-02','20205','90007'),('50028',1,'2018-08-03','20106','90008'),('50029',1,'2018-09-04','20207','90019'),('50030',1,'2018-10-05','20208','90009');
+/*!40000 ALTER TABLE `PURCHASE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `WALKINPURCHASE`
+--
+
+DROP TABLE IF EXISTS `WALKINPURCHASE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `WALKINPURCHASE` (
+  `PurchaseID` varchar(12) NOT NULL,
+  `ShopLocation` varchar(50) NOT NULL,
+  PRIMARY KEY (`PurchaseID`),
+  CONSTRAINT `WALKINPURCHASE_FKEY1` FOREIGN KEY (`PurchaseID`) REFERENCES `PURCHASE` (`PurchaseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `WALKINPURCHASE`
+--
+
+LOCK TABLES `WALKINPURCHASE` WRITE;
+/*!40000 ALTER TABLE `WALKINPURCHASE` DISABLE KEYS */;
+INSERT INTO `WALKINPURCHASE` VALUES ('50008','Jurong'),('50009','Bedok'),('50010','Jurong'),('50011','Clementi'),('50012','Bedok'),('50017','Clementi'),('50018','Jurong'),('50019','Clementi'),('50025','Jurong'),('50026','Bedok'),('50027','Bedok'),('50028','Clementi'),('50029','Bedok'),('50030','Jurong');
+/*!40000 ALTER TABLE `WALKINPURCHASE` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-11-13 21:52:11

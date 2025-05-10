@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>400</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PUBLICATION
+--
+PubctnID    PK
+PubctnTitle 
+PubctnDate    
+SubID        FK REFERENCES SUBJECT(SubID)   
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>240</y>
+      <w>420</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>REVIEW
+--
+PubctnID           PK FK REFERENCES PUBLICATION(PubctnID)
+ReviewerName PK
+ReviewDate      PK
+RComment
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>80</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PUBLISHER
+--
+PubshrName   PK
+Country           PK
+Address
+TelNo.
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>220</y>
+      <w>480</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>EDITION
+--
+ISBN              PK      
+EditionNum
+PrintDate
+NumOfPages
+ListPrice
+PubshrName   FK1 REFERENCES PUBLISHER(PubshrName)
+Country           FK1 REFERENCES PUBLISHER(Country)
+PubctnID         FK2 REFERENCES PUBLICATION(PubctnID)
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>400</y>
+      <w>390</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SUBJECT
+--
+SubID                            PK
+SubTitle
+consist-of-SubID           FK REFERENCES SUBJECT(SubID)
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>80</y>
+      <w>400</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>AUTHOR PUBLICATION
+--
+AFName    PK  FK1 REFERENCES AUTHOR(AFName)
+ALName    PK  FK1 REFERENCES AUTHOR(ALName)
+ADOB       PK   FK1 REFERENCES AUTHOR(ADOB)
+PubctnID  PK   FK2 REFERENCES PUBLICATION(PubctnID)
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>90</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>AUTHOR
+--
+AFName    PK
+ALName    PK
+ADOB        PK
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

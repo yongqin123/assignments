@@ -1,0 +1,47 @@
+ _____
+[task1]
+--------------------------------------------------------------
+-HOTEL-
+name      PK1
+city      PK1 CK1
+street        CK1
+bldg#         CK1
+stars   
+
+-ARRIVAL-
+when-arrived   PK
+name    PK  FK1 REFERENCES TO HOTEL(name)
+city    PK  FK1 REFERENCES TO HOTEL(city)
+passport  PK FK2 REFERENCES TO GUEST(passport)
+nationality PK FK2 REFERENCES TO GUEST(nationality)
+
+-GUEST-
+passport     PK
+nationality  PK
+name     
+credit-card  CK1
+
+-STANDARD-
+bed#
+area
+room#     PK
+name      PK FK1 REFERENCES TO HOTEL(name)
+city      PK FK1 REFERENCES TO HOTEL(city)
+
+-DELUXE-
+bed#
+area
+room#     PK
+name      PK FK1 REFERENCES TO HOTEL(name)
+city      PK FK1 REFERENCES TO HOTEL(city)
+
+-FACILITY-
+facilites PK
+room#     FK1 REFERENCES TO DELUXE(room#)
+name      FK1 REFERENCES TO DELUXE(name)
+city      FK1 REFERENCES TO DELUXE(city)
+------------------------------------------------------------------
+ _____
+[task3]
+
+(1)

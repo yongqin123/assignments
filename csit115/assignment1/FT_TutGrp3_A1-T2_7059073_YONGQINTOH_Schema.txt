@@ -1,0 +1,27 @@
+PUBLISHER(PubshrName, Country, Address, TelNo.)
+PRIMARY KEY = (PubshrName, Country)
+
+EDITION(ISBN, EditionNum, PrintDate, NumOfPages, ListPrice, PubshrName, Country, PubctnID)
+PRIMARY KEY = (ISBN)
+FOREIGN KEY 1 = (PubshrName, Country) REFERENCES PUBLISHER(PubshrName, Country)
+FOREIGN KEY 2 = (PubctnID) REFERENCES PUBLICATION(PubctnID)
+
+SUBJECT(SubID, SubTitle, consist-of-SubID)
+PRIMARY KEY = (SubID)
+FOREIGN KEY = (consist-of-SubID) REFERENCES SUBJECT(SubID)
+
+AUTHOR PUBLICATION(AFName, ALName, ADOB, PubctnID)
+PRIMARY KEY = (AFName, ALName, ADOB, PubctnID)
+FOREIGN KEY 1 = (AFName, ALName, ADOB) REFERENCES AUTHOR(AFName, ALName, ADOB)
+FOREIGN KEY 2 = (PubctnID) REFERENCES PUBLICATION(PubctnID)
+
+AUTHOR(AFName, ALName, ADOB)
+PRIMARY KEY = (AFName, ALName, ADOB)
+
+REVIEW(PubctnID, ReviewerName, ReviewDate, RComment)
+PRIMARY KEY = (PubctnID, ReviewerName, ReviewDate)
+FOREIGN KEY = (PubctnID) REFERENCES PUBLICATION(PubctnID)
+
+PUBLICATION(PubctnID, PubctnTitle, PubctnDate, SubID)
+PRIMARY KEY = (PubctnID)
+FOREIGN KEY = (SubID) RFERENCES SUBJECT(SubID)

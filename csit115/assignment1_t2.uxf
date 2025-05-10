@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>550</y>
+      <w>130</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>PUBLICATION
+--
+PubctnID        PK
+PubctnTitle 
+PubctnDate  
+SubID             FK      
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1210</x>
+      <y>550</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>REVIEW
+--
+PubctnID          PK FK
+ReviewerName PK
+ReviewDate      PK
+RComment
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>580</y>
+      <w>260</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+r1=
+m2=1..*
+Examined-in &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>1010</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PUBLICATION
+--
+PubctnID    ID
+PubctnTitle 
+PubctnDate
+bg=#dddddd
+
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>1040</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>ReviewerName,
+ReviewDate     
+bg=#dddddd</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>1030</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>REVIEW
+--
+RComment
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>1040</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+r1=
+m2=0..1
+Examines-in &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>280</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>PUBLISHER
+--
+PubshrName   PK
+Country           PK
+Address
+TelNo.
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>550</y>
+      <w>140</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>EDITION
+--
+ISBN              PK      
+EditionNum
+PrintDate
+NumOfPages
+ListPrice
+PubshrName  FK1
+Country          FK1
+PubctnID        FK2
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>390</y>
+      <w>100</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+publishes v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>590</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>690</y>
+      <w>110</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1
+Related to ^</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>800</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SUBJECT
+--
+SubID                             PK
+SubTitle
+consist-of-SubID            FK
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>0</x>
+      <y>280</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1..*
+&lt; Related to</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>70</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>AUTHOR
+--
+AFName    PK
+ALName    PK
+ADOB        PK
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>180</y>
+      <w>130</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+r1=
+m2=0..1
+Is-involved-in v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>400</y>
+      <w>130</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=1
+Is-involved-in ^</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>320</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>AUTHOR PUBLICATION
+--
+AFName    PK  FK1
+ALName    PK  FK1
+ADOB        PK  FK1
+PubctnID   PK  FK2
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,117 @@
+mysql> set global general_log='ON';
+--------------
+set global general_log='ON'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set global log_output='TABLE';
+--------------
+set global log_output='TABLE'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show variables like 'log_output';
+--------------
+show variables like 'log_output'
+--------------
+
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_output    | TABLE |
++---------------+-------+
+1 row in set (0.00 sec)
+
+mysql> TRUNCATE TABLE mysql.general_log;
+--------------
+TRUNCATE TABLE mysql.general_log
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> notee
+mysql> set global general_log='OFF';
+--------------
+set global general_log='OFF'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+mysql> /* (5) */
+mysql> SELECT event_time, argument FROM mysql.general_log WHERE argument LIKE "%DROP%" OR argument LIKE "%ALTER%" OR argument LIKE "%CREATE%";
+--------------
+SELECT event_time, argument FROM mysql.general_log WHERE argument LIKE "%DROP%" OR argument LIKE "%ALTER%" OR argument LIKE "%CREATE%"
+--------------
+
++----------------------------+---------------------------------------------------------------------------------------------------+
+| event_time                 | argument                                                                                          |
++----------------------------+---------------------------------------------------------------------------------------------------+
+| 2020-11-13 23:31:39.065999 | CREATE TABLE A3 ( Description VARCHAR(30) NOT NULL, CONSTRAINT A3_PKEY PRIMARY KEY (Description)) |
+| 2020-11-13 23:31:39.116991 | CREATE TABLE FUN ( Name VARCHAR(10) NOT NULL, CONSTRAINT A3_PKEY PRIMARY KEY (Name))              |
+| 2020-11-13 23:31:39.305481 | ALTER TABLE A3 MODIFY Description VARCHAR(35)                                                     |
+| 2020-11-13 23:31:39.573217 | DROP TABLE A3                                                                                     |
+| 2020-11-13 23:31:39.607013 | DROP TABLE FUN                                                                                    |
++----------------------------+---------------------------------------------------------------------------------------------------+
+5 rows in set (0.05 sec)
+
+mysql> 
+mysql> /* (6) */
+mysql> SELECT event_time, argument FROM
+    -> (SELECT * FROM 
+    -> (SELECT event_time, user_host, thread_id, server_id, command_type, argument, SUBSTRING_INDEX(argument, " ", 1) AS firsttt 
+    -> FROM mysql.general_log WHERE argument LIKE "%INSERT%" OR argument LIKE "%DELETE%" OR argument LIKE "%UPDATE%" OR argument LIKE "%SELECT%")d 
+    -> JOIN (SELECT firstt, count(firstt) AS counter  FROM (SELECT event_time, user_host, thread_id, server_id, command_type, argument, SUBSTRING_INDEX(argument, " ", 1) AS firstt 
+    -> FROM mysql.general_log WHERE argument LIKE "%INSERT%" OR argument LIKE "%DELETE%" OR argument LIKE "%UPDATE%" OR argument LIKE "%SELECT%")b GROUP BY firstt)c 
+    -> ON c.firstt = d.firsttt ORDER BY counter DESC)e;
+--------------
+SELECT event_time, argument FROM
+(SELECT * FROM 
+(SELECT event_time, user_host, thread_id, server_id, command_type, argument, SUBSTRING_INDEX(argument, " ", 1) AS firsttt 
+FROM mysql.general_log WHERE argument LIKE "%INSERT%" OR argument LIKE "%DELETE%" OR argument LIKE "%UPDATE%" OR argument LIKE "%SELECT%")d 
+JOIN (SELECT firstt, count(firstt) AS counter  FROM (SELECT event_time, user_host, thread_id, server_id, command_type, argument, SUBSTRING_INDEX(argument, " ", 1) AS firstt 
+FROM mysql.general_log WHERE argument LIKE "%INSERT%" OR argument LIKE "%DELETE%" OR argument LIKE "%UPDATE%" OR argument LIKE "%SELECT%")b GROUP BY firstt)c 
+ON c.firstt = d.firsttt ORDER BY counter DESC)e
+--------------
+
++----------------------------+----------------------------------------------------------------------+
+| event_time                 | argument                                                             |
++----------------------------+----------------------------------------------------------------------+
+| 2020-11-13 23:31:39.212211 | DELETE FROM WALKINPURCHASE WHERE PurchaseID = '50029'                |
+| 2020-11-13 23:31:39.269269 | DELETE FROM PURCHASE WHERE PurchaseID = '50022'                      |
+| 2020-11-13 23:31:39.233805 | DELETE FROM WALKINPURCHASE WHERE PurchaseID = '50010'                |
+| 2020-11-13 23:31:39.531811 | DELETE FROM BOOK WHERE BookID = '20101'                              |
+| 2020-11-13 23:31:39.163729 | DELETE FROM ONLINEPURCHASE WHERE PurchaseID = '50004'                |
+| 2020-11-13 23:31:39.239544 | DELETE FROM PURCHASE WHERE PurchaseID = '50004'                      |
+| 2020-11-13 23:31:39.169639 | DELETE FROM ONLINEPURCHASE WHERE PurchaseID = '50002'                |
+| 2020-11-13 23:31:39.443288 | DELETE FROM PURCHASE WHERE PurchaseID = '50025'                      |
+| 2020-11-13 23:31:39.543656 | DELETE FROM BOOK WHERE BookID = '20104'                              |
+| 2020-11-13 23:31:39.176212 | DELETE FROM ONLINEPURCHASE WHERE PurchaseID = '50010'                |
+| 2020-11-13 23:31:39.249592 | DELETE FROM BOOKAUTHOR WHERE BookID = '20101' AND AuthorID = '10004' |
+| 2020-11-13 23:31:39.494836 | DELETE FROM PURCHASE WHERE PurchaseID = '50012'                      |
+| 2020-11-13 23:31:39.549692 | DELETE FROM BOOK WHERE BookID = '20207'                              |
+| 2020-11-13 23:31:39.186518 | DELETE FROM ONLINEPURCHASE WHERE PurchaseID = '50022'                |
+| 2020-11-13 23:31:39.254351 | DELETE FROM PURCHASE WHERE PurchaseID = '50002'                      |
+| 2020-11-13 23:31:39.502306 | DELETE FROM PURCHASE WHERE PurchaseID = '50029'                      |
+| 2020-11-13 23:31:39.191849 | DELETE FROM WALKINPURCHASE WHERE PurchaseID = '50025'                |
+| 2020-11-13 23:31:39.259268 | DELETE FROM PURCHASE WHERE PurchaseID = '50010'                      |
+| 2020-11-13 23:31:39.508211 | DELETE FROM BOOKAUTHOR WHERE BookID = '20104' AND AuthorID = '10007' |
+| 2020-11-13 23:31:39.199511 | DELETE FROM WALKINPURCHASE WHERE PurchaseID = '50012'                |
+| 2020-11-13 23:31:39.513757 | DELETE FROM BOOKAUTHOR WHERE BookID = '20207' AND AuthorID = '10022' |
+| 2020-11-13 23:31:39.522043 | INSERT INTO BOOK VALUES ('20110','Taipei Summer',20.88)              |
+| 2020-11-13 23:31:39.280053 | INSERT INTO BOOK VALUES ('20210','4G Singapore',25.88)               |
+| 2020-11-13 23:31:39.244575 | INSERT INTO BOOK VALUES ('20211','Rich and Poor',20.88)              |
+| 2020-11-13 23:31:39.555551 | INSERT INTO BOOK VALUES ('20111','Bangkok Wealther',20.88)           |
+| 2020-11-13 23:31:39.264396 | INSERT INTO BOOK VALUES ('20112','Najib influence',29.88)            |
+| 2020-11-13 23:31:39.568305 | INSERT INTO A3 VALUES ('Assignment 3 is fun')                        |
+| 2020-11-13 23:31:39.290959 | UPDATE BOOK SET Price=60 WHERE BookID = '20201'                      |
+| 2020-11-13 23:31:39.538569 | UPDATE BOOK SET Price=40 WHERE BookID = '20202'                      |
+| 2020-11-13 23:31:39.561480 | UPDATE BOOK SET Title='Myanmar Travel' WHERE BookID = '20108'        |
+| 2020-11-13 23:31:39.572819 | SELECT * FROM A3                                                     |
+| 2020-11-13 23:31:39.679581 | SELECT * FROM BOOK                                                   |
++----------------------------+----------------------------------------------------------------------+
+32 rows in set (0.00 sec)
+
+mysql> notee

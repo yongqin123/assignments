@@ -1,0 +1,56 @@
+(Task1)
+1.
+INSERT INTO EMPLOYEE VALUES(300,Harry,Potter,harrypotter,515.123.8182,STR_TO_DATE("10-02-2010","%d-%m-%Y")
+,"Programmer",7000,0.50,103,"Information Technology");
+
+2.
+DELETE FROM JOBHISTORY WHERE employee_id=206;
+DELETE FROM EMPLOYEE WHERE employee_id=206;
+
+3.
+UPDATE TABLE DEPARTMENT SET street_address="100 Century Avenue", postal_code="200120", city="Shanghai",
+country_name="China" WHERE department_name="Human Resources";
+INSERT INTO LOCATION VALUES("100 Century Avenue", "200120", "Shanghai", NULL,"China");
+
+(Task2)
+1.
+SELECT * FROM DEPARTMENT WHERE city="Sydney" AND country_name="Australia";
+
+2.
+SELECT job_title FROM JOB WHERE min_salary >= 7500 AND max_salary <= 8500;
+
+3.
+SELECT CONCAT(first_name," ",last_name) AS full_name FROM EMPLOYEE WHERE supervisor_id IS NULL;
+
+4.
+SELECT employee_id FROM (SELECT employee_id, SUBSTRING_INDEX(end_date, '-', 1)datee FROM JOBHISTORY)a 
+WHERE a.datee = "1998";
+
+ANOTHER WAY: V
++---------------------------------------------------------------+
+|SELECT emoployee_id FROM JOBHISTORY WHERE YEAR(end_date)=1998; |
++---------------------------------------------------------------+
+
+5.
+SELECT department_name, CONCAT(first_name," ",last_name) AS full_name FROM EMPLOYEE ORDER BY department_name DESC, last_name ASC;
+
+(Task3)
+1.
+SELECT department_name FROM DEPARTMENT WHERE country_name="Singapore" OR country_name="Japan";
+
+2.
+SELECT department_name FROM DEPARTMENT WHERE country_name IN (SELECT country_name WHERE region_name="Americas");
+
+
+3.
+SELECT CONCAT(first_name, " ", last_name) AS full_name FROM EMPLOYEE WHERE department_name IN (SELECT department_name FROM DEPARTMENT WHERE city="New York");
+
+4.
+SELECT CONCAT(first_name," ",last_name) AS full_name FROM EMPLOYEE WHERE commission_pct IS NOT NULL;
+
+5.
+SELECT job_title, COUNT(*) FROM EMPLOYEE 
+GROUP BY job_title ORDER BY job_title ASC;
+
+(Task4)
+1.

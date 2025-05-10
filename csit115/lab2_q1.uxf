@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>60</y>
+      <w>130</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>HOTEL
+--
+name PK
+city CK1
+street   CK2
+bldg# CK3
+stars
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>80</y>
+      <w>380</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>CHECK IN/OUT
+--
+name               PK   FK1 REFERENCES HOTEL(name)
+passport          PK   FK2 REFERENCES GUEST(passport)
+when-arrived 
+when-left
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1490</x>
+      <y>80</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>GUEST
+--
+passport PK
+nationality CK1
+name
+credit-card CK2
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>90</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+r1=
+m2=*
+Is-involved-in &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;350.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1310</x>
+      <y>90</y>
+      <w>200</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+&lt; Performs</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>80</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..*
+&lt; Has </panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>280</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>STANDARD
+--
+name     PK FK REFERENCES ROOM(name)
+room#    PK FK REFERENCES ROOM(name)
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>280</y>
+      <w>320</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>DELUXE
+--
+name     PK FK REFERENCES ROOM(name)
+room#    PK FK REFERENCES ROOM(name)
+
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>780</x>
+      <y>340</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>FACILTIES
+--
+name     PK FK REFERENCES DELUXE(name)
+room#    PK FK REFERENCES DELUXE(name)
+facilities PK
+
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>360</y>
+      <w>150</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+r1=
+m2=*
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>50</y>
+      <w>300</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>ROOM
+--
+name     PK FK REFERENCES HOTEL(name)
+room#    PK
+bed#
+area
+bg=#dddddd
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

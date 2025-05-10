@@ -1,0 +1,38 @@
+[Specialty]
+-passportNumber   PK FK REFENCES TO Chef(passportNumber)
+-specialtyNumber  PK
+-description
+-ingredients
+
+[Chef]
+-culinaryCerts
+-competitionExpr
+-passportNumber    PK FK REFERNCES TO Person(passportNumber)
+
+[PartyEvent]
+-chef_passportNumber   FK REFENCES TO Chef(passportNumber)
+-client_passportNumber FK REERENCES TO Client(passportNumber)
+-eventID    PK
+-partSize
+-cusininePkg
+-eventDate  CK
+-eventTime  CK
+-eventVenue CK
+
+[Client]
+-pasportNumber PK FK REFENCES TO Person(passportNumber)
+-preferredCuisine
+-preferredPaymType
+-creditCardNumber
+-creditCardType
+-issuingBank
+
+[Person]
+-passportNumber   PK
+-firstName        CK
+-lastName         CK
+-dateOfBirth      CK
+-gender
+-address
+-telNo
+-email

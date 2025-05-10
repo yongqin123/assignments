@@ -1,0 +1,42 @@
+mysql> source FT_TutGrp3_A3-T1b_7059073_YONGQINTOH_Sql.sql;
+--------------
+SELECT * FROM BOOK WHERE BookID NOT IN (SELECT BookID FROM yqt817_DOC)
+--------------
+
++--------+------------------+-------+
+| BookID | Title            | Price |
++--------+------------------+-------+
+| 20110  | Taipei Summer    | 20.88 |
+| 20111  | Bangkok Wealther | 20.88 |
+| 20112  | Najib influence  | 29.88 |
+| 20210  | 4G Singapore     | 25.88 |
+| 20211  | Rich and Poor    | 20.88 |
++--------+------------------+-------+
+5 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM yqt817_DOC  WHERE BookID NOT IN (SELECT BookID FROM BOOK)
+--------------
+
++--------+-----------------+-------+
+| BookID | Title           | Price |
++--------+-----------------+-------+
+| 20101  | Malaysia Travel | 29.99 |
+| 20104  | Travel to USA   | 19.88 |
+| 20207  | Advance C++     | 50.00 |
++--------+-----------------+-------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT BookID, Title, Price FROM (SELECT BOOK.BookID, BOOK.Title, BOOK.Price, (yqt817_DOC.Price) AS Price1 FROM BOOK JOIN yqt817_DOC ON BOOK.BookID = yqt817_DOC.BookID)TAB WHERE Price != Price1
+--------------
+
++--------+-----------------+-------+
+| BookID | Title           | Price |
++--------+-----------------+-------+
+| 20201  | UML Bible       | 60.00 |
+| 20202  | SQL Make Simple | 40.00 |
++--------+-----------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> notee

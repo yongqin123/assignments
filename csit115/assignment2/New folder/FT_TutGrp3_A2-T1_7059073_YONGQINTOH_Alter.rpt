@@ -1,0 +1,46 @@
+mysql> source FT_TutGrp3_A2-T1_7059073_YONGQINTOH_Alter.sql;
+--------------
+ALTER TABLE Client DROP FOREIGN KEY Client_fkey
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE Client
+  ADD CONSTRAINT Client_fkey FOREIGN KEY (passportNumber) 
+  REFERENCES Person(passportNumber) ON UPDATE CASCADE ON DELETE CASCADE
+--------------
+
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE Chef MODIFY competitionExpr VARCHAR(1000) NULL
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE PartyEvent ADD COLUMN duration CHAR(2) NOT NULL
+--------------
+
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE PartyEvent ADD CONSTRAINT PE_check CHECK (duration BETWEEN 0 AND 99)
+--------------
+
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+--------------
+ALTER TABLE Client ADD COLUMN countryOfOrigin VARCHAR(40) NOT NULL
+--------------
+
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> notee;
